@@ -881,6 +881,8 @@ from_leader(Ops, S, _E) ->
     lists:foreach(
       fun({delete, Globals}) ->
               delete_globals(Globals);
+         ({delete, Globals, _}) ->
+             delete_globals(Globals);
          ({insert, Globals}) ->
 	      _ = insert_globals(Globals);
          ({notify, Events}) ->
